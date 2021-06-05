@@ -5,18 +5,18 @@ CREATE DATABASE employee_db;
 USE employee_db;
 
 CREATE TABLE department (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     name VARCHAR (30),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE role (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     title VARCHAR (30),
     salary DECIMAL,
     department_id INTEGER,
     PRIMARY KEY (id),
-    FOREIGN KEY (department_id) REFERENCES department(id)
+    CONSTRAINT fk_deptartment FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
 CREATE TABLE employees (
@@ -26,5 +26,5 @@ CREATE TABLE employees (
     role_id INTEGER NOT NULL,
     manager_id INTEGER,
     PRIMARY KEY (id),
-    FOREIGN KEY (role_id) REFERENCES role(id)
+    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id)
     );

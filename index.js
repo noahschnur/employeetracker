@@ -66,14 +66,120 @@ function viewRole() {
     });
 }
 
-function viewEmployees() {}
+function viewEmployees() {
+    let query = `SELECT * FROM employee_db.employees`;
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        runTracker();
+    });
+}
 
-function addDepartment() {}
+function addDepartment() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'newdept',
+      message: 'What is the new department called?'
+    }
+  ]).then((answer)=> {
+    let query = `INSERT INTO employee_db.department (department.name) VALUES (?)`;
+    let params = [answer.newdept];
+    connection.query(query, params, (err, res) => {
+        if (err) throw err
+        console.table(res);
+        runTracker();
+    });
+  });
+}
 
-function addRole() {}
+function addRole() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'title',
+      message: "What is the new role?"
+    },
+    {
+      type: 'input',
+      name: 'salary',
+      message: "What is the new salary?"
+    },
+    {
+      type: 'input',
+      name: 'deptId',
+      message: "What is department is the new role in?"
+    }
+  ]).then((answer) => {
+    let query = `INSERT INTO employee_db.role (role.title, role.salary, role.department_id) VALUES (?, ?, ?)`;
+    let params = [answer.title, answer.salary, answer.deptId];
+    connection.query(query, params, (err, res) => {
+      if (err) throw err
+      console.table(res);
+      runTracker();
+    });
+  });
+}
 
-function addEmployee() {}
+function addEmployee() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'firstName',
+      message: "What is the new employee's first name?"
+    },
+    {
+      type: 'input',
+      name: 'lastName',
+      message: "What is the new employee's last name?"
+    },
+    {
+      type: 'input',
+      name: 'role',
+      message: "What is the new employee's role id number?"
+    },
+    {
+      type: 'input',
+      name: 'managerId',
+      message: "What is the new employee's manager's id number?"
+    }
+  ]).then((answer) => {
+    let query = `INSERT INTO employee_db.employees (employees.first_name, employees.last_name, employees.role_id, employees.manager_id) VALUES (?, ?, ?, ?)`;
+    let params = [answer.firstName, answer.lastName, answer.role, answer.managerId];
+    connection.query(query, params, (err, res) => {
+      if (err) throw err
+      console.table(res);
+      runTracker();
+    });
+  });
+}
 
-function updateRole() {}
+function updateRole() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'newRole',
+      message: "What is the employee's new role id number?"
+    },
+    {
+      type: 'input',
+      name: "newManagerId",
+      message: "What is the employee's new manager's id number?"
+    },
+    {
+      type: 'input',
+      name: 'whichEmployee',
+      message: "Which employee are you updating? (Please input id number)"
+    }
+  ]).then((answer) => {
+    let query = `UPDATE employee_db.employees SET employees.role_id = ?, employees.manager_id = ? WHERE employees.id = ?`;
+    let params = [answer.newRole, answer.newManagerId, answer.whichEmployee];
+    connection.query(query, params, (err, res) => {
+        if (err) throw err
+        console.table(res);
+        runTracker();
+    });
+  });
+}
 
 runTracker();

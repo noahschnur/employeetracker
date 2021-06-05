@@ -16,8 +16,8 @@ VALUES
 INSERT INTO employees (id, first_name, last_name, role_id, manager_id)
 VALUES
     (1, 'Fake', 'Name', 1, 2),
-    (2, 'Super', 'Faker', 2, 1),
+    (2, 'Super', 'Faker', 2, 2),
     (3, 'Bigger', 'Fakest', 3, 4),
-    (4, 'Fake', 'Faking', 4, 3),
+    (4, 'Fake', 'Faking', 4, 4),
     (5, 'Names', 'Are-Fake', 5, 6),
-    (6, 'Last', 'One', 6, 5);
+    (6, 'Last', 'One', 6, 6);
