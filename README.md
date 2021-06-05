@@ -37,3 +37,6 @@ noahschnur@gmail.com, https://github.com/noahschnur
 
 https://github.com/noahschnur/employeetracker
 
+https://www.youtube.com/watch?v=03B0I9KAfAw
+
+[![Alt Text](https://img.youtube.com/vi/03B0I9KAfAw/0.jpg)](https://www.youtube.com/watch?v=03B0I9KAfAw)
