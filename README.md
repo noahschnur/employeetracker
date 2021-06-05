@@ -35,8 +35,5 @@ N/A
 
 noahschnur@gmail.com, https://github.com/noahschnur
 
-
-This readme created through the application.
-
 https://github.com/noahschnur/employeetracker
 
