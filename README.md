@@ -2,7 +2,7 @@
 
 ## Description
 
-An inquirer application that uses MySQL that helps employers keep track of their employees and update their buisness and employees as needed.
+An inquirer application that uses MySQL that helps employers keep track of their employees and update their business and employees as needed.
 
 ## License
 
