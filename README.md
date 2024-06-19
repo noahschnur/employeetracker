@@ -21,7 +21,7 @@ Node, Inquirer, MySQL2, Console.table
 
 ## Usage
 
-Follow the steps after initializing mysql and running node index
+Follow the steps after initializing mysql and running node index.
 
 ## Contributions
 
